@@ -39,3 +39,18 @@ body {
     width: 20px;
     display: inline-block;
 }
+
+#score_box {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    border: 10px solid blue;
+}
+.fruit {
+    background-image: url(./assets/PAC-MAN_Strawberry.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}

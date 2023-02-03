@@ -8,7 +8,7 @@ var world = [
     [0,1,1,1,1,1,1,1,2,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,0],
     [0,1,2,1,2,1,2,1,2,0,0,0,0,0,0,0,0,2,1,2,1,2,1,2,1,0],
     [2,1,2,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,1,2,1,2,1,2,1,2],
-    [2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2],
+    [2,1,2,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,2,1,2],
     [2,1,2,1,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,1,2,1,2],
     [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
     [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
@@ -29,7 +29,7 @@ function createWorld() {
                 output += '<div class="empty"></div>'
             }
             if (world[i][j] == 3) {
-                output += '<div class="pacman"></div>'
+                output += '<div class="fruit"></div>'
             }
         }
         output += '\n</div>'
@@ -45,20 +45,21 @@ var y = 0;
 pacman = document.getElementById("pacman");
 var Xstart = pacman.style.left = `${x+445}px`;
 var ystart = pacman.style.top = `${y+20}px`;
+score = parseFloat(document.getElementById("score").innerText)
 
 
 document.onkeydown = function(e) {
-    if (e.keyCode == 37) {
+    if (e.keyCode == 37 && world[y+1][x] !== 2) {
         x--;
         console.log (x)
     }
-    if (e.keyCode == 39) {
+    if (e.keyCode == 39 && world[y+1][x+2] !== 2) {
         x++;
     }
-    if (e.keyCode ==38) {
+    if (e.keyCode ==38 && world[y][x+1] !== 2) {
         y--;
     }
-    if (e.keyCode ==40) {
+    if (e.keyCode ==40 && world[y+2][x+1] !== 2) {
         y++;
     }
     pacman.style.left = `${x*20+445}px`;
@@ -66,6 +67,14 @@ document.onkeydown = function(e) {
     if (world[y+1][x+1] == 1) {
         world[y+1][x+1] = 0;
         createWorld()
+        score++
+        document.getElementById('score').innerText = score;
+    }
+    if (world[y+1][x+1] == 3 ) {
+        world[y+1][x+1] = 0;
+        score += 50;
+        document.getElementById('score').innerText = score;
+        
     }
     console.log(x)
     console.log(y)
