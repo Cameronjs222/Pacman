@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+#pacman {
+    background-image: url(assets/PacMan.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transform: rotate(0deg);;
+}
+.row div{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.row {
+    height: 20px;
+}
+.brick {
+    background-color: blue;
+}
+.Coin {
+    background-image: url(assets/coin_gif.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.empty {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
