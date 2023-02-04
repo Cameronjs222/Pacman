@@ -16,7 +16,7 @@ body {
     width: 20px;
     height: 20px;
     position: absolute;
-    transform: rotate(0deg);;
+    /* transform: rotate(90deg); */
 }
 .row div{
     width: 20px;

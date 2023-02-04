@@ -51,16 +51,20 @@ score = parseFloat(document.getElementById("score").innerText)
 document.onkeydown = function(e) {
     if (e.keyCode == 37 && world[y+1][x] !== 2) {
         x--;
+        pacman.style.transform = "rotate(360deg)"
         console.log (x)
     }
     if (e.keyCode == 39 && world[y+1][x+2] !== 2) {
         x++;
+        pacman.style.transform = "rotate(180deg)"
     }
     if (e.keyCode ==38 && world[y][x+1] !== 2) {
         y--;
+        pacman.style.transform = "rotate(90deg)"
     }
     if (e.keyCode ==40 && world[y+2][x+1] !== 2) {
         y++;
+        pacman.style.transform = "rotate(270deg)"
     }
     pacman.style.left = `${x*20+445}px`;
     pacman.style.top = `${y*20+20}px`;
@@ -75,6 +79,9 @@ document.onkeydown = function(e) {
         score += 50;
         document.getElementById('score').innerText = score;
         
+    }
+    if (!world.some(row => row.includes(1))) {
+        alert("Game Over");
     }
     console.log(x)
     console.log(y)
