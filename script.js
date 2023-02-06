@@ -83,6 +83,24 @@ document.onkeydown = function(e) {
     if (!world.some(row => row.includes(1))) {
         alert("Game Over");
     }
+    if (x == -1 && y == 4){
+        x=23;
+    }
+    if (x == -1 && y == 5) {
+        x=23;
+    }
+    if (x==-1 && y== 6) {
+        x=23;
+    }
+    if (x==24 && y==4) {
+        x=0;
+    }
+    if (x==24 && y==5) {
+        x=0;
+    }
+    if (x==24 && y==6) {
+        x=0;
+    }
     console.log(x)
     console.log(y)
 }
